@@ -22,3 +22,13 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Picker color
+```
+npm install vue3-colorpicker
+```
+### See: 
+```
+https://www.npmjs.com/package/vue3-colorpicker
+https://github.com/aesoper101/vue3-colorpicker
+```
