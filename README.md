@@ -1,5 +1,8 @@
 # vue-triangle-css
 
+## Demo page
+[https://lethihuyenanh.github.io/vue-triangle-css/](https://lethihuyenanh.github.io/vue-triangle-css/)
+
 ## Project setup
 ```
 npm install
@@ -27,8 +30,29 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```
 npm install vue3-colorpicker
 ```
-### See: 
+See [https://www.npmjs.com/package/vue3-colorpicker](https://www.npmjs.com/package/vue3-colorpicker)
+See [https://github.com/aesoper101/vue3-colorpicker](https://github.com/aesoper101/vue3-colorpicker).
+
+### Guide to deploy Github
 ```
-https://www.npmjs.com/package/vue3-colorpicker
-https://github.com/aesoper101/vue3-colorpicker
+https://learnvue.co/articles/deploy-vue-to-github-pages
+
+step 1:
+vue.config.js
+module.exports = {
+  publicPath:
+    process.env.NODE_ENV === "production" ? "/vue-triangle-css/" : "/",
+});
+
+step 2:
+npm run build
+
+step 3: Step 3. Run git add dist && git commit -m 'adding dist subtree'
+git add dist
+git commit -m 'adding dist subtree'
+
+Note: Make sure that dist is not included in your .gitignorefile!
+
+Step 4. 
+git subtree push --prefix dist origin gh-pages
 ```
