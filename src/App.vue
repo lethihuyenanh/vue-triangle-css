@@ -22,14 +22,18 @@
             :style="preStyleList.bottomRight" class="bottomRight">bottom-right</button>
         </div>
         <div class="form-control" :class="{ invalid: !width.isValid }">
-          <label for="width">Width:</label>
-          <input type="number" id="width" v-model.number="width.val" @blur="validateValue(width)">
-          <p class="text-error" v-if="!width.isValid">Width must be greater than 0.</p>
+          <label class="form-control__head" for="width">Width:</label>
+          <div class="form-control__body">
+            <input type="number" id="width" v-model.number="width.val" @blur="validateValue(width)">
+            <p class="text-error" v-if="!width.isValid">Width must be greater than 2</p>
+          </div>
         </div>
         <div class="form-control" :class="{ invalid: !height.isValid }">
-          <label for="height">Height:</label>
-          <input type="number" id="height" v-model.number="height.val" @blur="validateValue(height)">
-          <p class="text-error" v-if="!height.isValid">Height must be greater than 0.</p>
+          <label class="form-control__head" for="height">Height:</label>
+          <div class="form-control__body">
+            <input type="number" id="height" v-model.number="height.val" @blur="validateValue(height)">
+            <p class="text-error" v-if="!height.isValid">Height must be greater than 2</p>
+          </div>
         </div>
         <div class="color-pickers">
           <ColorPicker v-model:pureColor="color" is-widget pickerType="chrome" :debounce="10" :disableHistory="true"
@@ -156,7 +160,7 @@ export default {
     this.width.val = 100;
     this.height.val = 100;
     this.typeIsSelected = null;
-    this.color= 'rgb(0,0,0)';
+    this.color = 'rgb(0,0,0)';
   },
   methods: {
     onChangeColor(event) {
@@ -183,8 +187,8 @@ export default {
     onPreStyleList() {
       this.width.val = 30;
       this.height.val = 30;
-      
-      this.color =  'red';
+
+      this.color = 'red';
       this.typeIsSelected = 'top';
       this.preStyleList.top = this.resultCSS;
 
@@ -241,6 +245,7 @@ h1 {
   margin: 1.5rem 0;
   font-size: 2rem;
 }
+
 @media screen and (min-width: 768px) {
   h1 {
     margin: 2rem 0;
@@ -290,10 +295,12 @@ h1 {
   transition: transform 0.3s ease-out;
   position: absolute;
 }
+
 .box-triggle__btns button:hover {
   transform: scale(1.5);
   z-index: 2;
 }
+
 .box-triggle__btns button.is-selected {
   transform: scale(1.5);
   z-index: 2;
@@ -306,39 +313,46 @@ h1 {
   margin-left: -15px;
   /* transform-origin: 50% 100%; */
 }
+
 .box-triggle__btns .right {
   left: 100%;
   top: 50%;
   margin-top: -15px;
   /* transform-origin: 0 50%; */
 }
+
 .box-triggle__btns .bottom {
   top: 100%;
   left: 50%;
   margin-left: -15px;
   /* transform-origin: 50% 0; */
 }
+
 .box-triggle__btns .left {
   right: 100%;
   top: 50%;
   margin-top: -15px;
   /* transform-origin: 100% 50%; */
 }
+
 .box-triggle__btns .topLeft {
   top: 0;
   left: 0;
   /* transform-origin: 0 0; */
 }
+
 .box-triggle__btns .topRight {
   top: 0;
   right: 0;
   /* transform-origin: 100% 0; */
 }
+
 .box-triggle__btns .bottomLeft {
   bottom: 0;
   left: 0;
   /* transform-origin: 0 100%; */
 }
+
 .box-triggle__btns .bottomRight {
   bottom: 0;
   right: 0;
@@ -354,12 +368,15 @@ h1 {
   margin-top: 0.5rem;
 }
 
-.form-control label {
+.form-control .form-control__head {
   width: 4rem;
 }
 
-.form-control input {
+.form-control .form-control__body {
   width: calc(100% - 4rem);
+}
+
+.form-control input {
   display: block;
   height: 38px;
   border-radius: 4px;
@@ -378,6 +395,7 @@ h1 {
 .box-result {
   padding-bottom: 20px;
 }
+
 .box-result__css {
   text-align: left;
   font-family: monospace, sans-serif;
@@ -386,6 +404,7 @@ h1 {
   font-size: 90%;
   margin-bottom: 20px;
 }
+
 .box-result__shape {
   padding: 20px;
   background: url(./assets/images/bg01.jpg);
@@ -398,12 +417,14 @@ h1 {
 
 .text-error {
   color: red;
+  padding: 0.25em 0;
 }
 
 @media screen and (min-width: 768px) {
   .u-sm-max {
     display: none;
   }
+
   .box {
     display: flex;
     padding-bottom: 20px;
@@ -422,14 +443,14 @@ h1 {
     padding-left: 20px;
     padding-bottom: 0;
   }
+
   .box-result__inner {
     height: 100%;
     display: flex;
     flex-direction: column;
   }
+
   .box-result__shape {
     flex-grow: 1;
   }
-}
-
-</style>
+}</style>
